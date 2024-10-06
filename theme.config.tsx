@@ -9,14 +9,6 @@ const config: DocsThemeConfig = {
   project: {
     link: 'https://github.com/IndraSty/traveloka-scraper',
   },
-  sidebar: {
-    titleComponent({ title, type }) {
-      if (type === 'separator') {
-        return <span className="cursor-default">{title}</span>;
-      }
-      return <>{title}</>;
-    },
-  },
   footer: {
     content: `Traveloka Scraper ${year} © IndraSty`,
   },
