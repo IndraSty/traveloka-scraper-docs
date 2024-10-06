@@ -1,0 +1,83 @@
+# Scrap List Hotel
+
+Scraping List Hotel by Url
+
+### Endpoint
+
+```md filename="Base URL"
+http://localhost:5000
+```
+
+```md filename="Method and Endpoint"
+POST /api/users/current/scraplisthotel
+```
+
+```md filename="Headers"
+Authorization: Bearer access_token
+```
+
+### Request Body
+
+```json filename="Request Body"
+{
+  "url": "https://traveloka.com/full-url-of-the-page"
+}
+```
+
+### Responses
+
+You will get responses like this:
+
+#### 200 (success)
+
+```json filename="Response Body"
+{
+    "message": "Hotels successfully scraped and saved to database",
+    "hotels": [
+        {
+            "title": "Hotel Grand Central",
+            "addr": "Jl. Merdeka No. 1, Jakarta",
+            "originalPrice": "Rp 1.200.000",
+            "price": "Rp 950.000",
+            "rate": "8.5",
+            "review": "150",
+            "image": "https://example.com/image1.jpg",
+            "userId": "12345"
+        },
+        {
+            "title": "The Luxury Hotel",
+            "addr": "Jl. Sudirman No. 10, Jakarta",
+            "originalPrice": "Rp 2.500.000",
+            "price": "Rp 2.100.000",
+            "rate": "9.0",
+            "review": "200",
+            "image": "https://example.com/image2.jpg",
+            "userId": "12345"
+        }
+    ]
+}
+```
+
+#### 400 (Bad Request)
+
+```json filename="Response Body"
+{
+  "message": "Url is invalid"
+}
+```
+
+#### 401 (Unauthorized)
+
+```json filename="Response Body"
+{
+  "message": "Unauthorized"
+}
+```
+
+#### 500 (server error)
+
+```json filename="Response Body"
+{
+  "message": "Internal server error"
+}
+```

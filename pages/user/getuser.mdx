@@ -1,0 +1,60 @@
+# Get User
+
+Get data User by User Id
+
+### Endpoint
+
+```md filename="Base URL"
+http://localhost:5000
+```
+
+```md filename="Method and Endpoint"
+GET /api/users/current
+```
+
+```md filename="Headers"
+Authorization: Bearer access_token
+```
+
+### Responses
+
+You will get responses like this:
+
+#### 200 (success)
+
+```json filename="Response Body"
+{
+  "data": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "john.doe@example.com",
+    "create_at": "2024-01-15T10:20:30Z",
+    "update_at": "2024-02-10T14:25:35Z"
+  },
+  "message": "Get User Successfully"
+}
+```
+
+#### 401 (Unauthorized)
+
+```json filename="Response Body"
+{
+  "message": "Unauthorized"
+}
+```
+
+#### 404 (Not Found)
+
+```json filename="Response Body"
+{
+  "message": "User not found"
+}
+```
+
+#### 500 (server error)
+
+```json filename="Response Body"
+{
+  "message": "Internal server error"
+}
+```

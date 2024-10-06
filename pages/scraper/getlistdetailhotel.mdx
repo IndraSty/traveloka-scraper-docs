@@ -1,0 +1,96 @@
+# Get List Detail Hotel
+
+Get All List Detail Hotel by User Id
+
+### Endpoint
+
+```md filename="Base URL"
+http://localhost:5000
+```
+
+```md filename="Method and Endpoint"
+GET /api/users/current/listdetailhotel
+```
+
+```md filename="Headers"
+Authorization: Bearer access_token
+```
+
+### Query Param
+
+`page` : string (optional, default 1)
+
+### Responses
+
+You will get responses like this:
+
+#### Pagination
+
+- `page` : The current page
+- `limit`: Return a maximum of 10 hotels per page.
+- `total` : Total item in the page
+- `totalPages` : Number of the page on pagination
+
+### Responses
+
+You will get responses like this:
+
+#### 200 (success)
+
+```json filename="Response Body"
+{
+  "message": "Get Hotels Successfully",
+  "data": [
+    {
+      "title": "The Ritz-Carlton Jakarta",
+      "price": "Rp 2.500.000",
+      "description": "This luxury hotel offers an unforgettable experience with 5-star amenities, breathtaking city views, and world-class services.",
+      "address": "Jl. Sudirman No. 1, Jakarta",
+      "facilities": [
+        "Free Wi-Fi",
+        "Swimming Pool",
+        "Spa",
+        "Fitness Center",
+        "24-hour Room Service"
+      ],
+      "images": [
+        "https://example.com/image1.jpg",
+        "https://example.com/image2.jpg"
+      ]
+    },
+    {
+      "title": "Hotel Grand Central",
+      "price": "Rp 1.200.000",
+      "description": "A comfortable and affordable hotel located in the heart of Jakarta, offering modern facilities and friendly service.",
+      "address": "Jl. Merdeka No. 1, Jakarta",
+      "facilities": ["Free Parking", "Restaurant", "24-hour Front Desk"],
+      "images": [
+        "https://example.com/image3.jpg",
+        "https://example.com/image4.jpg"
+      ]
+    }
+  ],
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "total": 2,
+    "totalPages": 1
+  }
+}
+```
+
+#### 401 (Unauthorized)
+
+```json filename="Response Body"
+{
+  "message": "Unauthorized"
+}
+```
+
+#### 500 (server error)
+
+```json filename="Response Body"
+{
+  "message": "Internal server error"
+}
+```

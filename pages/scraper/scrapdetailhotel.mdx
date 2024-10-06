@@ -1,0 +1,80 @@
+# Scrap Detail Hotel
+
+Scraping Detail Hotel by Url
+
+### Endpoint
+
+```md filename="Base URL"
+http://localhost:5000
+```
+
+```md filename="Method and Endpoint"
+POST /api/users/current/scraphotel
+```
+
+```md filename="Headers"
+Authorization: Bearer access_token
+```
+
+### Request Body
+
+```json filename="Request Body"
+{
+  "url": "https://traveloka.com/full-url-of-the-page"
+}
+```
+
+### Responses
+
+You will get responses like this:
+
+#### 200 (success)
+
+```json filename="Response Body"
+{
+  "message": "Hotel successfully scraped and saved to database",
+  "hotel": {
+    "title": "The Ritz-Carlton Jakarta",
+    "price": "Rp 2.500.000",
+    "description": "This luxury hotel offers an unforgettable experience with 5-star amenities, breathtaking city views, and world-class services.",
+    "address": "Jl. Sudirman No. 1, Jakarta",
+    "facilities": [
+      "Free Wi-Fi",
+      "Swimming Pool",
+      "Spa",
+      "Fitness Center",
+      "24-hour Room Service"
+    ],
+    "images": [
+      "https://example.com/image1.jpg",
+      "https://example.com/image2.jpg",
+      "https://example.com/image3.jpg"
+    ],
+    "userId": "12345"
+  }
+}
+```
+
+#### 400 (Bad Request)
+
+```json filename="Response Body"
+{
+  "message": "Url is invalid"
+}
+```
+
+#### 401 (Unauthorized)
+
+```json filename="Response Body"
+{
+  "message": "Unauthorized"
+}
+```
+
+#### 500 (server error)
+
+```json filename="Response Body"
+{
+  "message": "Internal server error"
+}
+```

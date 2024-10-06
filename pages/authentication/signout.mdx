@@ -1,0 +1,44 @@
+# SignOut User
+
+Delete refresh token user on database and cookies
+
+### Endpoint
+
+```md filename="Base URL"
+http://localhost:5000
+```
+
+```md filename="Method and Endpoint"
+DELETE /api/auth/signout
+```
+
+```md filename="Headers"
+Authorization: Bearer access_token
+```
+
+### Responses
+You will get responses like this:
+
+#### 200 (success)
+
+```json filename="Response Body"
+{
+    "message": "Loged Out Successfully!"
+}
+```
+
+#### 401 (Unauthorized)
+
+```json filename="Response Body"
+{
+    "message": "Unauthorized"
+}
+```
+
+#### 500 (server error)
+
+```json filename="Response Body"
+{
+  "message": "Internal server error"
+}
+```

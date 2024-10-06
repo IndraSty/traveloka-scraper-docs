@@ -1,18 +1,39 @@
-import React from 'react'
-import { DocsThemeConfig } from 'nextra-theme-docs'
+import React from 'react';
+import { DocsThemeConfig } from 'nextra-theme-docs';
+import { useRouter } from 'next/router';
+
+const year = new Date().getFullYear();
 
 const config: DocsThemeConfig = {
-  logo: <span>My Project</span>,
+  logo: <strong>Traveloka Scraper</strong>,
   project: {
-    link: 'https://github.com/shuding/nextra-docs-template',
+    link: 'https://github.com/IndraSty/traveloka-scraper',
   },
-  chat: {
-    link: 'https://discord.com',
+  sidebar: {
+    titleComponent({ title, type }) {
+      if (type === 'separator') {
+        return <span className="cursor-default">{title}</span>;
+      }
+      return <>{title}</>;
+    },
   },
-  docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
   footer: {
-    text: 'Nextra Docs Template',
+    content: `Traveloka Scraper ${year} © IndraSty`,
   },
-}
+  useNextSeoProps() {
+    const { asPath } = useRouter();
+    if (asPath !== '/') {
+      return {
+        titleTemplate: '%s – Traveloka Scraper',
+        description: 'Traveloka Scraper | %s',
+      };
+    }
+    return {
+      titleTemplate: 'Traveloka Scraper - Web Scraper',
+      description:
+        "Backend Service Web Scraper",
+    };
+  },
+};
 
-export default config
+export default config;

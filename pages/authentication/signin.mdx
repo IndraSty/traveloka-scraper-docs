@@ -1,0 +1,51 @@
+# SignIn User
+
+Authenticate User by Email and Password
+
+### Endpoint
+
+```md filename="Base URL"
+http://localhost:5000
+```
+
+```md filename="Method and Endpoint"
+POST /api/auth/signin
+```
+
+### Request Body
+
+```json filename="Request Body"
+{
+  "email": "example@gmail.com",
+  "password": "YourPassword_123"
+}
+```
+
+### Responses
+
+You will get responses like this:
+
+#### 200 (success)
+
+```json filename="Response Body"
+{
+  "access_token": "unique-string-for-access-token",
+  "message": "Logged in successfully!"
+}
+```
+
+#### 400 (bad request)
+
+```json filename="Response Body"
+{
+  "message": "email or password incorrect"
+}
+```
+
+#### 500 (server error)
+
+```json filename="Response Body"
+{
+  "message": "Internal server error"
+}
+```
